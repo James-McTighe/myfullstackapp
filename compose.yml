@@ -1,0 +1,22 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - 5000:5000
+    volumes:
+      - ./server:/app
+    stdin_open: true
+    tty: true
+    working_dir: /app
+
+  client:
+    build: ./client
+    ports:
+      - 5173:5173
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    working_dir: /app
+    depends_on:
+      - server
+    command: npm run dev --host
