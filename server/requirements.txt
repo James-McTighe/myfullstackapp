@@ -1,3 +1,10 @@
 flask
-flask-cors
-gunicorn
+flask_sqlalchemy
+flask_bcrypt
+flask_login
+flask_mail
+dotenv
+itsdangerous
+Flask-WTF
+matplotlib
+email-validator
