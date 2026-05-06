@@ -8,3 +8,4 @@ itsdangerous
 Flask-WTF
 matplotlib
 email-validator
+flask-cors
