@@ -37,7 +37,7 @@ const Home = () => {
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
         </div>
       ) : (
-        <main className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cardData.map((card, index) => (
             <InfoCard 
               id={card.id || index}
@@ -46,7 +46,7 @@ const Home = () => {
               description={card.description}
             />
           ))}
-        </main>
+        </div>
       )}
     </div>
   );

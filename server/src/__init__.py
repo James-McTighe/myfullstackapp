@@ -29,4 +29,10 @@ def create_app(config_class=Config):
     with app.app_context():
         db.create_all()
 
+    from src.home.routes import main
+    from src.graphs.graphs import graphs
+
+    app.register_blueprint(main)
+    app.register_blueprint(graphs)
+
     return app
