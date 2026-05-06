@@ -1,7 +1,3 @@
-// Filename - pages/signup.js
-
-import React from "react";
-
 const SignUp = () => {
     return (
         <div>
