@@ -1,29 +1,31 @@
-import { NavLink as RouterNavLink } from "react-router-dom";
-import styled from "styled-components";
-
-export const Nav = styled.nav`
+.navbar {
   background: #111827;
   min-height: 72px;
   display: flex;
   align-items: center;
   padding: 0 24px;
-`;
+}
 
-export const NavMenu = styled.div`
+.navbar__menu {
   display: flex;
   align-items: center;
   gap: 24px;
-`;
+}
 
-export const NavLink = styled(RouterNavLink)`
+.navbar__link {
   color: #f9fafb;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
   padding: 8px 0;
   border-bottom: 2px solid transparent;
+  transition: all 400ms;
+}
 
-  &.active {
-    border-bottom-color: #22c55e;
-  }
-`;
+.navbar__link.active {
+  color: #22c55e;
+}
+
+.navbar__link:hover {
+  border-bottom-color: #22c55e;
+}
