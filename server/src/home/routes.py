@@ -1,4 +1,4 @@
-from flask import render_template, request, Blueprint, jsonify
+from flask import Blueprint, jsonify
 import json
 from pathlib import Path
 
