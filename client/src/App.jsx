@@ -2,9 +2,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages";
 import About from "./pages/about";
-import Blogs from "./pages/blogs";
-import SignUp from "./pages/signup";
-import Contact from "./pages/contact";
+import JobApps from "./pages/JobApps"
 
 function App() {
   return (
@@ -13,9 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/job-apps" element={<JobApps />} />
       </Routes>
     </Router>
   );

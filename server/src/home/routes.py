@@ -1,30 +1,24 @@
 from flask import render_template, request, Blueprint, jsonify
+import json
+from pathlib import Path
 
-main = Blueprint('main', __name__)
+main = Blueprint("main", __name__)
+
+HOME_CONTENT_PATH = Path(__file__).with_name("home-content.json")
+
 
 @main.route("/")
 @main.route("/home")
 def home():
     pass
 
-@main.route('/api/data', methods=['GET'])
+
+@main.route("/api/data", methods=["GET"])
 def get_data():
-    # Ensure keys match the props expected by your React InfoCard
-    data = [
-        {
-            "id": 1,
-            "title": "Method Validation",
-            "category": "R&D",
-            "description": "Streamlining pharmaceutical workflows with automated data verification."
-        },
-        {
-            "id": 2,
-            "title": "Computational Models",
-            "category": "Software",
-            "description": "High-performance simulation of molecular dynamics and interactions."
-        }
-    ]
+    with HOME_CONTENT_PATH.open("r", encoding="utf-8") as file:
+        data = json.load(file)
     return jsonify(data)
+
 
 @main.route("/about")
 def about():
