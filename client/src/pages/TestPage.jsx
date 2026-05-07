@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const About = () => {
+const TestPage = () => {
   const [graphData, setGraphData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -30,4 +30,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default TestPage;
