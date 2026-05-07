@@ -1,32 +1,14 @@
 [
   {
     "id": 1,
-    "title": "Method Validation",
-    "category": "R&D",
-    "description": "Streamlining pharmaceutical workflows with automated data verification."
+    "title": "Job Application Tracker",
+    "category": "Personal",
+    "description": "Keep track of any job applications that I create"
   },
   {
     "id": 2,
-    "title": "Computational Models",
+    "title": "Test Page",
     "category": "Software",
-    "description": "High-performance simulation of molecular dynamics and interactions."
-  },
-  {
-    "id": 3,
-    "title": "Process Analytics",
-    "category": "Data",
-    "description": "Operational dashboards for trends, anomalies, and quality monitoring."
-  },
-  {
-    "id": 4,
-    "title": "Process Analytics",
-    "category": "Data",
-    "description": "Operational dashboards for trends, anomalies, and quality monitoring."
-  },
-  {
-    "id": 5,
-    "title": "Process Analytics",
-    "category": "Data",
-    "description": "Operational dashboards for trends, anomalies, and quality monitoring."
+    "description": "Page for playing around with full stack stuff"
   }
 ]
