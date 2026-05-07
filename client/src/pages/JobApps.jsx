@@ -1,9 +1,10 @@
 import React from 'react';
+import Tracker from '../components/JobTracker/Tracker.jsx'
 
 const JobApps = () => {
 
   return (
-  <h1>hello world!</h1>
+  <Tracker />
   )
 }
 

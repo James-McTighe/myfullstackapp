@@ -6,14 +6,16 @@ import JobApps from "./pages/JobApps"
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test-page" element={<TestPage />} />
-        <Route path="/job-apps" element={<JobApps />} />
-      </Routes>
-    </Router>
+    <div className="bg-slate-100 min-h-screen">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/test-page" element={<TestPage />} />
+          <Route path="/job-apps" element={<JobApps />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
