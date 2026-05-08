@@ -1,3 +1,19 @@
+import Box from '@mui/material/Box';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  bgcolor: 'background.paper',
+  border: '1px solid #000',
+  boxShadow: 24,
+  p: 2,
+  "border-radius": 20,
+}
+
+
 const AddJob = ({
   formValues,
   onChange,
@@ -8,6 +24,7 @@ const AddJob = ({
   statusOptions,
 }) => {
   return (
+    <Box sx={style}>
     <form
       onSubmit={onSubmit}
       className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
@@ -21,7 +38,6 @@ const AddJob = ({
             Track the role, hiring stage, links, and follow-up notes.
           </p>
         </div>
-        {isEditing ? (
           <button
             type="button"
             onClick={onCancel}
@@ -29,7 +45,6 @@ const AddJob = ({
           >
             Cancel
           </button>
-        ) : null}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -71,7 +86,7 @@ const AddJob = ({
           </select>
         </label>
 
-        <label className="text-left text-sm font-medium text-slate-700">
+        <label className="text-left text- font-medium text-slate-700">
           Date applied
           <input
             type="date"
@@ -147,6 +162,7 @@ const AddJob = ({
         {isSaving ? 'Saving...' : isEditing ? 'Save changes' : 'Add application'}
       </button>
     </form>
+    </Box>
   );
 };
 

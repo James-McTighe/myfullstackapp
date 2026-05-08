@@ -1,5 +1,7 @@
 import { useDeferredValue, useEffect, useMemo, useState, startTransition } from 'react';
 import axios from 'axios';
+import Modal from '@mui/material/Modal';
+// import Button from '@mui/material/Button';
 
 import AddJob from './AddJob.jsx';
 
@@ -74,6 +76,14 @@ const Tracker = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  }
+  const handleClose = () => {
+    setOpen(false);
+  }
 
   useEffect(() => {
     let isCurrent = true;
@@ -154,6 +164,7 @@ const Tracker = () => {
   const resetForm = () => {
     setFormValues(EMPTY_FORM);
     setEditingId(null);
+    setOpen(false);
   };
 
   const refreshJobs = async () => {
@@ -215,7 +226,7 @@ const Tracker = () => {
         nextStep: job.nextStep || '',
         notes: job.notes || '',
       });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setOpen(true);
     });
   };
 
@@ -266,16 +277,6 @@ const Tracker = () => {
           </div>
         </header>
 
-        <div className="grid gap-8 xl:grid-cols-[420px_minmax(0,1fr)]">
-          <AddJob
-            formValues={formValues}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-            onCancel={resetForm}
-            isSaving={isSaving}
-            isEditing={Boolean(editingId)}
-            statusOptions={STATUS_OPTIONS}
-          />
 
           <div className="flex flex-col gap-6">
             <div className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[minmax(0,1fr)_220px_auto] md:items-end">
@@ -314,6 +315,28 @@ const Tracker = () => {
                 />
                 Include archived
               </label>
+              <button
+                type="submit"
+                onClick={handleOpen}
+                disabled={isSaving}
+                className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-500"
+              >
+                Add Application
+              </button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+              >
+                <AddJob
+                  formValues={formValues}
+                  onChange={handleChange}
+                  onSubmit={handleSubmit}
+                  onCancel={resetForm}
+                  isSaving={isSaving}
+                  isEditing={Boolean(editingId)}
+                  statusOptions={STATUS_OPTIONS}
+                />
+              </Modal>
             </div>
 
             {error ? (
@@ -364,9 +387,8 @@ const Tracker = () => {
                               {job.jobTitle}
                             </h3>
                             <span
-                              className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                                STATUS_STYLES[job.status] || 'bg-slate-200 text-slate-700'
-                              }`}
+                              className={`rounded-full px-3 py-1 text-xs font-semibold ${STATUS_STYLES[job.status] || 'bg-slate-200 text-slate-700'
+                                }`}
                             >
                               {job.status}
                             </span>
@@ -439,7 +461,6 @@ const Tracker = () => {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };
