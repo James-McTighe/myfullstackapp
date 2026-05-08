@@ -36,6 +36,7 @@ export default function SimpleSnackbar({ message }) {
     <div>
       <Snackbar
         open={open}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         autoHideDuration={2000}
         onClose={handleClose}
         message={message}
