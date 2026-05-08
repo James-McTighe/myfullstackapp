@@ -9,6 +9,7 @@ from src.models import JobApplication
 job_apps = Blueprint("job_apps", __name__)
 
 VALID_STATUSES = {
+    "Saved",
     "Applied",
     "Phone Screen",
     "Interviewing",

@@ -7,6 +7,7 @@ import AddJob from './AddJob.jsx';
 import SimpleSnackbar from '../utils/Toast.jsx';
 
 const STATUS_OPTIONS = [
+  'Saved',
   'Applied',
   'Phone Screen',
   'Interviewing',
@@ -34,6 +35,7 @@ const STATUS_STYLES = {
   Offer: 'bg-emerald-100 text-emerald-700',
   Rejected: 'bg-rose-100 text-rose-700',
   Withdrawn: 'bg-slate-200 text-slate-700',
+  Saved: 'bg-slate-200 text-slate-700',
 };
 
 const formatSalary = (salary) => {
@@ -279,7 +281,7 @@ const Tracker = () => {
               <input
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search for some stupid fucking job"
+                placeholder="Search for a job you applied for"
                 className="mt-1 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-emerald-500"
               />
             </label>
