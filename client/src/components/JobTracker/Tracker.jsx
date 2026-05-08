@@ -247,7 +247,7 @@ const Tracker = () => {
   return (
     <section className="min-h-screen px-6 py-10 lg:px-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-8">
-        <header className="rounded-[2rem] border border-emerald-100 bg-slate-950 px-8 py-10 text-left text-white shadow-xl">
+        <header className="rounded-[2rem] bg-slate-950 px-8 py-10 text-left text-white">
           <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">
             Job Tracker
           </p>
@@ -261,19 +261,13 @@ const Tracker = () => {
                 without losing the history.
               </p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {Object.entries(counts).map(([key, value]) => (
               <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm text-slate-300">Visible roles</p>
-                <p className="mt-2 text-3xl font-semibold">{counts.total}</p>
+                <p className="text-sm text-slate-300">{key}</p>
+                <p className="mt-2 text-3xl font-semibold text-right">{value}</p>
               </div>
-              <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm text-slate-300">Interviewing</p>
-                <p className="mt-2 text-3xl font-semibold">{counts.interviewing}</p>
-              </div>
-              <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm text-slate-300">Offers</p>
-                <p className="mt-2 text-3xl font-semibold">{counts.offers}</p>
-              </div>
+              ))}
             </div>
           </div>
         </header>
