@@ -263,15 +263,14 @@ const Tracker = () => {
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {Object.entries(counts).map(([key, value]) => (
-              <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                <p className="text-sm text-slate-300">{key}</p>
-                <p className="mt-2 text-3xl font-semibold text-right">{value}</p>
-              </div>
+                <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
+                  <p className="text-sm text-slate-300">{key}</p>
+                  <p className="mt-2 text-3xl font-semibold text-right">{value}</p>
+                </div>
               ))}
             </div>
           </div>
         </header>
-
 
         <div className="flex flex-col gap-6">
           <div className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[minmax(0,1fr)_220px_auto] md:items-end">
