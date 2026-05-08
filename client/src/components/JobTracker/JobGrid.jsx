@@ -1,5 +1,3 @@
-import { startTransition } from "react";
-
 const STATUS_STYLES = {
   Applied: 'bg-sky-100 text-sky-700',
   'Phone Screen': 'bg-amber-100 text-amber-700',
@@ -63,7 +61,7 @@ const JobGrid = ({ jobs, isLoading, }) => {
       <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 px-6 py-12 text-center">
         <h3 className="text-xl font-semibold text-slate-800">No applications yet</h3>
         <p className="mt-2 text-sm text-slate-500">
-          Add your first role above to start tracking it.
+          Add your first role on the left to start tracking it.
         </p>
       </div>
     )
