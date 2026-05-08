@@ -1,6 +1,4 @@
-import React from 'react';
-
-const InfoCard = ({ id, title, description, category }) => {
+const InfoCard = ({ title, description, category }) => {
   return (
     <div
       className="group 
