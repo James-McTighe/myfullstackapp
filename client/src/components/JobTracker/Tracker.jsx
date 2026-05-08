@@ -38,7 +38,7 @@ const STATUS_STYLES = {
 
 const formatSalary = (salary) => {
   if (!salary && salary !== 0) {
-    return 'Not listed';
+    return 'Salary Not listed';
   }
 
   return new Intl.NumberFormat('en-US', {
@@ -273,13 +273,13 @@ const Tracker = () => {
         </header>
 
         <div className="flex flex-col gap-6">
-          <div className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[minmax(0,1fr)_220px_auto] md:items-end">
+          <div className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm grid-cols-2 md:items-end">
             <label className="text-left text-sm font-medium text-slate-700">
               Search roles or notes
               <input
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Frontend Engineer, Acme, referral..."
+                placeholder="Search for some stupid fucking job"
                 className="mt-1 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-emerald-500"
               />
             </label>
@@ -289,7 +289,8 @@ const Tracker = () => {
               <select
                 value={statusFilter}
                 onChange={(event) => setStatusFilter(event.target.value)}
-                className="mt-1 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-emerald-500"
+                className="mt-1 w-full rounded-2xl border border-slate-300 px-4 py-3 
+                outline-none transition focus:border-emerald-500"
               >
                 <option value="">All statuses</option>
                 {STATUS_OPTIONS.map((status) => (
@@ -300,7 +301,8 @@ const Tracker = () => {
               </select>
             </label>
 
-            <label className="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium text-slate-700">
+            <label className="flex items-center gap-3 rounded-2xl border 
+              border-slate-200 px-4 py-3 text-sm font-medium text-slate-700">
               <input
                 type="checkbox"
                 checked={includeArchived}
@@ -313,7 +315,9 @@ const Tracker = () => {
               type="submit"
               onClick={handleOpen}
               disabled={isSaving}
-              className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-500"
+              className="inline-flex items-center justify-center rounded-full 
+              bg-emerald-600 px-5 py-3 text-sm font-semibold text-white 
+              transition hover:bg-emerald-500"
             >
               Add Application
             </button>
@@ -334,7 +338,8 @@ const Tracker = () => {
           </div>
 
           {error ? (
-            <div className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-left text-sm text-rose-700">
+            <div className="rounded-2xl border border-rose-200 
+              bg-rose-50 px-4 py-3 text-left text-sm text-rose-700">
               {error}
             </div>
           ) : null}
@@ -366,11 +371,12 @@ const Tracker = () => {
                 </p>
               </div>
             ) : (
-              <div className="grid gap-4">
+              <div className="grid gap-4 grid-cols-2">
                 {jobs.map((job) => (
                   <article
                     key={job.id}
-                    className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-left transition hover:border-emerald-200 hover:bg-white"
+                    className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-left transition 
+                        hover:shadow-lg hover:-translate-y-1"
                   >
                     <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                       <div>
@@ -379,8 +385,10 @@ const Tracker = () => {
                             {job.jobTitle}
                           </h3>
                           <span
-                            className={`rounded-full px-3 py-1 text-xs font-semibold ${STATUS_STYLES[job.status] || 'bg-slate-200 text-slate-700'
-                              }`}
+                            className={
+                              `rounded-full px-3 py-1 text-xs font-semibold 
+                              ${STATUS_STYLES[job.status] || 'bg-slate-200 text-slate-700'}`
+                            }
                           >
                             {job.status}
                           </span>
@@ -402,14 +410,16 @@ const Tracker = () => {
                         <button
                           type="button"
                           onClick={() => handleEdit(job)}
-                          className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-white"
+                          className="rounded-full border border-slate-300 px-4 py-2 text-sm 
+                              font-medium text-slate-700 transition hover:border-blue-400 hover:bg-blue-50"
                         >
                           Edit
                         </button>
                         <button
                           type="button"
                           onClick={() => handleArchive(job)}
-                          className="rounded-full border border-emerald-300 px-4 py-2 text-sm font-medium text-emerald-700 transition hover:bg-emerald-50"
+                          className="rounded-full border border-rose-300 px-4 py-2 text-sm 
+                              font-medium text-rose-700 transition hover:bg-rose-50"
                         >
                           {job.archived ? 'Restore' : 'Archive'}
                         </button>
@@ -418,7 +428,8 @@ const Tracker = () => {
                             href={job.jobUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
+                            className="rounded-full bg-slate-900 px-4 py-2 text-sm 
+                                font-medium text-white transition hover:bg-slate-700"
                           >
                             Open posting
                           </a>
@@ -426,7 +437,6 @@ const Tracker = () => {
                       </div>
                     </div>
 
-                    {(job.nextStep || job.notes) ? (
                       <div className="mt-4 grid gap-3 rounded-2xl bg-white p-4 md:grid-cols-2">
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -445,7 +455,6 @@ const Tracker = () => {
                           </p>
                         </div>
                       </div>
-                    ) : null}
                   </article>
                 ))}
               </div>
